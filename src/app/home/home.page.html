@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Gestión de Proyectos
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-label position="stacked">Nombre del Proyecto</ion-label>
+    <ion-input type="text" [(ngModel)]="nombreProyecto"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="stacked">Tiempo</ion-label>
+    <ion-input type="text" [(ngModel)]="tiempoProyecto"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="stacked">Cantidad de Recursos</ion-label>
+    <ion-input type="number" [(ngModel)]="cantidadRecursos"></ion-input>
+  </ion-item>
+
+  <ion-button expand="full" (click)="agregarProyecto()">Agregar Proyecto</ion-button>
+
+
+  <!-- Lista de tarjetas para mostrar proyectos -->
+  <ion-card *ngFor="let proyecto of proyectos">
+    <ion-card-header>
+      <ion-card-title>{{ proyecto.nombre }}</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <p>Tiempo: {{ proyecto.tiempo }}</p>
+      <p>Recursos: {{ proyecto.recursos }}</p>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
